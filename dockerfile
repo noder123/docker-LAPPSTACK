@@ -1,13 +1,12 @@
 FROM ubuntu:16.04
 
-MAINTAINER William Torres <william@sisoft.com.co>
+MAINTAINER William Torres <wiltorc2430@gmail.com>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
 
-# Install sshd
+# Install ssh
 RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
+RUN mkdir /var/run/ssh
 
 # Set password to 'admin'
 RUN printf admin\\nadmin\\n | passwd
@@ -35,7 +34,18 @@ RUN service postgresql start; \
 # Install Apache
 RUN apt-get install -y apache2
 # Install php
-RUN apt-get install -y php libapache2-mod-php7.0 php7.0-mcrypt php-pgsql libapache2-mod-auth-pgsql php7.0-curl php-mbstring php7.0-mbstring php-gettext libapache2-mod-php7.0 php7.0-gd php-zip
+RUN apt-get install -y \
+	php \
+	libapache2-mod-php7.0 \
+	php7.0-mcrypt \
+	php-pgsql \
+	libapache2-mod-auth-pgsql \
+	php7.0-curl \
+	php-mbstring \
+	php7.0-mbstring \
+	php-gettext \
+	libapache2-mod-php7.0 \
+	php7.0-gd php-zip \
 
 # Install phppgadmin
 RUN apt-get install -y phppgadmin
@@ -47,5 +57,7 @@ EXPOSE 80
 EXPOSE 5432
 
 CMD service postgresql start; \
+    service postgresql restart; \
 	service apache2 start; \
+	service apache2 restart; \
 	/usr/sbin/sshd -D
