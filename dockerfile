@@ -15,7 +15,7 @@ RUN printf admin\\nadmin\\n | passwd
 RUN apt-get install -y postgresql; \
 #su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'postgres';\""
 
-RUN apt-get install -y postgresql-contrib
+RUN apt-get install -y postgresql-contrib;
 
 # Set postgresql default encoding to UTF-8
 # RUN echo "UPDATE pg_database SET datistemplate=FALSE WHERE datname='template1';" > utf8.sql; \
