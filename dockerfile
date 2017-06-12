@@ -9,13 +9,13 @@ RUN apt-get install -y openssh-server
 RUN mkdir /var/run/ssh
 
 # Set password to 'admin'
-RUN printf admin\\nadmin\\n | passwd
+#RUN printf admin\\nadmin\\n | passwd
 
 # Install postgresql
-RUN apt-get install -y postgresql; \
+RUN apt-get install -y postgresql
 #su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'postgres';\""
 
-RUN apt-get install -y postgresql-contrib;
+#RUN apt-get install -y postgresql-contrib;
 
 # Set postgresql default encoding to UTF-8
 # RUN echo "UPDATE pg_database SET datistemplate=FALSE WHERE datname='template1';" > utf8.sql; \
@@ -23,8 +23,8 @@ RUN apt-get install -y postgresql-contrib;
 #	echo "CREATE DATABASE template1 WITH owner=postgres template=template0 encoding='UTF8';" >> utf8.sql; \
 #	echo "UPDATE pg_database SET datistemplate=TRUE WHERE datname='template1';" >> utf8.sql
 
-RUN service postgresql start; \
-	export PGPASSWORD=root; \
+#RUN service postgresql start; \
+#	export PGPASSWORD=root; \
 
 # Install Apache
 RUN apt-get install -y apache2
