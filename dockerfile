@@ -31,7 +31,7 @@ RUN apt-get install -y php \
 
 # Install postgresql
 
-#RUN	apt-get install postgresql
+RUN	apt-get install -y postgresql
 
 #RUN su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'root';\""
 
