@@ -12,7 +12,12 @@ RUN mkdir /var/run/ssh
 #RUN printf admin\\nadmin\\n | passwd
 
 # Install postgresql
-RUN apt-get install -y postgresql
+
+RUN add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main" \
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - \
+	apt-get update
+	apt-get install postgresql-9.6
+
 #su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'postgres';\""
 
 #RUN apt-get install -y postgresql-contrib;
@@ -28,6 +33,7 @@ RUN apt-get install -y postgresql
 
 # Install Apache
 RUN apt-get install -y apache2
+
 # Install php
 RUN apt-get install -y \
 	php \
