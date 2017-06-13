@@ -4,7 +4,7 @@ MAINTAINER William Torres <wiltorc2430@gmail.com>
 
 RUN apt-get update
 
-# Install ssh
+# Instalacion ssh
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/ssh
 
@@ -18,25 +18,16 @@ RUN add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg
 	apt-get update
 	apt-get install postgresql-9.6
 
-#su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'postgres';\""
+RUN su - postgres -c "psql -U postgres -d postgres -c \"alter user postgres with password 'root';\""
 
-#RUN apt-get install -y postgresql-contrib;
-
-# Set postgresql default encoding to UTF-8
-# RUN echo "UPDATE pg_database SET datistemplate=FALSE WHERE datname='template1';" > utf8.sql; \
-#	echo "DROP DATABASE template1;" >> utf8.sql; \
-#	echo "CREATE DATABASE template1 WITH owner=postgres template=template0 encoding='UTF8';" >> utf8.sql; \
-#	echo "UPDATE pg_database SET datistemplate=TRUE WHERE datname='template1';" >> utf8.sql
-
-#RUN service postgresql start; \
-#	export PGPASSWORD=root; \
+RUN service postgresql start; \
+	export PGPASSWORD=root; \
 
 # Install Apache
-RUN apt-get install -y apache2
+RUN apt-get install apache2
 
 # Install php
-RUN apt-get install -y \
-	php \
+RUN apt-get install php \
 	libapache2-mod-php7.0 \
 	php7.0-mcrypt \
 	php-pgsql \
