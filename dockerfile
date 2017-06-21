@@ -9,9 +9,7 @@ RUN apt-get install -y openssh-server
 RUN mkdir /var/run/ssh
 
 # Set password to 'admin'
-#RUN printf admin\\nadmin\\n | passwd
-
-
+RUN printf admin\\nadmin\\n | passwd
 
 # Install Apache
 RUN apt-get install -y apache2
