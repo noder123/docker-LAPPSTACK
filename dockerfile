@@ -41,5 +41,5 @@ EXPOSE 80
 EXPOSE 5432
 
 CMD service apache2 start; \
-	service apache2 restart; \
-	/usr/sbin/sshd -D
+    service apache2 restart; \
+    /usr/sbin/sshd -D
