@@ -11,6 +11,9 @@ RUN mkdir /var/run/ssh
 # Set password to 'admin'
 RUN printf admin\\nadmin\\n | passwd
 
+RUN apt-get update
+
+RUN apt-get upgrade
 
 # Install php
 RUN apt-get install -y \
