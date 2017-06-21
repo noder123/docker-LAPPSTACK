@@ -16,7 +16,7 @@ RUN apt-get update
 RUN apt-get upgrade
 
 # Install php
-RUN apt-get install -y \
+RUN apt-get install -qq -y \
         php \
 	libapache2-mod-php7.0 \
 	php7.0-mcrypt \
