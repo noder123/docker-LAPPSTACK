@@ -11,24 +11,20 @@ RUN mkdir /var/run/ssh
 # Set password to 'admin'
 RUN printf admin\\nadmin\\n | passwd
 
-RUN apt-get update
-
-RUN apt-get upgrade
-
 # Install php
-RUN apt-get install -yqq \
-        php \
-	libapache2-mod-php7.0 \
-	php7.0-mcrypt \
-	php-pgsql \
-	libapache2-mod-auth-pgsql \
-	php7.0-curl \
-	php-mbstring \
-	php7.0-mbstring \
-	php-gettext \
-	libapache2-mod-php7.0 \
-	php7.0-gd php-zip \
-	apache2 \
+RUN apt-get install -y php
+#        php \
+#	libapache2-mod-php7.0 \
+#	php7.0-mcrypt \
+#	php-pgsql \
+#	libapache2-mod-auth-pgsql \
+#	php7.0-curl \
+#	php-mbstring \
+#	php7.0-mbstring \
+#	php-gettext \
+#	libapache2-mod-php7.0 \
+#	php7.0-gd php-zip \
+#	apache2 \
 
 # Install Apache
 #RUN apt-get install -y apache2
