@@ -33,6 +33,6 @@ RUN apt-get install -y postgresql
 # Install phppgadmin
 RUN apt-get install -y phppgadmin
 
-EXPOSE 22
-EXPOSE 80
-EXPOSE 5432
+#EXPOSE 22
+#EXPOSE 80
+#EXPOSE 5432
