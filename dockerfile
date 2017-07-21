@@ -12,10 +12,8 @@ RUN mkdir /var/run/ssh
 RUN printf admin\\nadmin\\n | passwd
 
 # Install php
-RUN apt-get install -y php
-#        php \
-#	libapache2-mod-php7.0 \
-#	php7.0-mcrypt \
+RUN apt-get install -y php &&	apt-get install -y libapache2-mod-php7.0 \
+&& apt-get install -y php7.0-mcrypt \
 #	php-pgsql \
 #	libapache2-mod-auth-pgsql \
 #	php7.0-curl \
