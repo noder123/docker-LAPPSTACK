@@ -12,17 +12,17 @@ RUN mkdir /var/run/ssh
 RUN printf admin\\nadmin\\n | passwd
 
 # Install php
-RUN apt-get install -y php &&	apt-get install -y libapache2-mod-php7.0 \
-&& apt-get install -y php7.0-mcrypt
-#	php-pgsql \
-#	libapache2-mod-auth-pgsql \
-#	php7.0-curl \
-#	php-mbstring \
-#	php7.0-mbstring \
-#	php-gettext \
-#	libapache2-mod-php7.0 \
-#	php7.0-gd php-zip \
-#	apache2 \
+RUN apt-get install -y php &&	apt-get install -y libapache2-mod-php7.0 && \
+apt-get install -y php7.0-mcrypt && \
+apt-get install	-y php-pgsql && \
+apt-get install -y libapache2-mod-auth-pgsql && \
+apt-get install -y php7.0-curl && \
+apt-get install -y php-mbstring && \
+apt-get install -y	php7.0-mbstring && \
+apt-get install -y php-gettext && \
+apt-get install -y libapache2-mod-php7.0 && \
+apt-get install -y php7.0-gd php-zip && \
+apt-get install -y apache2
 
 # Install Apache
 #RUN apt-get install -y apache2
