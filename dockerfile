@@ -33,6 +33,6 @@ apt-get install -y phppgadmin
 #EXPOSE 80
 #EXPOSE 5432
  
-CMD service postgresql start; \
-	service apache2 start; \
-	/usr/sbin/sshd -D
+#CMD service postgresql start; \
+#	service apache2 start; \
+#	/usr/sbin/sshd -D
