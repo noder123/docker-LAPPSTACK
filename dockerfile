@@ -24,15 +24,15 @@ apt-get install -y libapache2-mod-php7.0 && \
 apt-get install -y php7.0-gd php-zip && \
 apt-get install -y apache2
 
-# Install Apache
-#RUN apt-get install -y apache2
-
-# Install postgresql
-RUN apt-get install -y postgresql
-
-# Install phppgadmin
-RUN apt-get install -y phppgadmin
+# Install Apache - Postgres - Phppgadmin
+#RUN apt-get install -y apache2 && \
+apt-get install -y postgresql
+apt-get install -y phppgadmin
 
 #EXPOSE 22
 #EXPOSE 80
 #EXPOSE 5432
+ 
+CMD service postgresql start; \
+	service apache2 start; \
+	/usr/sbin/sshd -D
