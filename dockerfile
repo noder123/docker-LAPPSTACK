@@ -18,7 +18,7 @@ apt-get install	-y php-pgsql && \
 apt-get install -y libapache2-mod-auth-pgsql && \
 apt-get install -y php7.0-curl && \
 apt-get install -y php-mbstring && \
-apt-get install -y	php7.0-mbstring && \
+apt-get install -y php7.0-mbstring && \
 apt-get install -y php-gettext && \
 apt-get install -y libapache2-mod-php7.0 && \
 apt-get install -y php7.0-gd php-zip && \
