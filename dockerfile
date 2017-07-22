@@ -25,8 +25,8 @@ apt-get install -y php7.0-gd php-zip && \
 apt-get install -y apache2
 
 # Install Apache - Postgres - Phppgadmin
-#RUN apt-get install -y apache2 && \
-apt-get install -y postgresql
+RUN apt-get install -y apache2 && \
+apt-get install -y postgresql && \
 apt-get install -y phppgadmin
 
 #EXPOSE 22
