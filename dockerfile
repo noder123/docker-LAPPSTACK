@@ -29,6 +29,8 @@ RUN apt-get install -y apache2 && \
 apt-get install -y postgresql && \
 apt-get install -y phppgadmin
 
+COPY ./phppgadmin/phppgadmin.conf /etc/apache2/conf.d/phppgadmin
+
 EXPOSE 22
 EXPOSE 80
 EXPOSE 5432
