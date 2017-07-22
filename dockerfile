@@ -29,12 +29,16 @@ RUN apt-get install -y apache2 && \
 apt-get install -y postgresql && \
 apt-get install -y phppgadmin
 
-COPY ./phppgadmin/phppgadmin.conf /etc/apache2/conf.d/phppgadmin
+COPY ./phppgadmin/config.inc.php /etc/phppgadmin/
+COPY ./postgres/pg_hba.conf /etc/postgresql/9.5/main/
+COPY ./factsisoft /var/www/html/factsisoft
+COPY ./hosts/hosts /etc/hosts
+COPY ./apache2/sites-available/ /etc/apache2/sites-available/
 
 EXPOSE 22
 EXPOSE 80
 EXPOSE 5432
 
-#CMD service postgresql start; \
-#	service apache2 start; \
-#	/usr/sbin/sshd -D
+COPY start.sh /start.sh
+CMD ["bash", "start.sh"]
+
