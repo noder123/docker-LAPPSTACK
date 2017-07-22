@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+	factsisoft:
+		build: .
+		ports:
+			- 80:80
+			- 5432:5432
+			- 22:22
+		volumes:
+			- .docs:/var/www/docsAPP
+
